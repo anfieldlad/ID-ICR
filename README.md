@@ -1,60 +1,70 @@
- __     ____   ___   ___  ___   ____ 
- \ \   / /_ | / _ \ / _ \|__ \ / __ \
-  \ \_/ / | || | | | | | |  ) | |  | |
-   \   /  | || | | | | | | / /| |  | |
-    | |   | || |_| | |_| |/ /_| |__| |
-    |_|   |_(_)___/ \___//____|\____/ 
+# ID-ICR
 
-             ID-ICR
-Indonesian Document Intelligent Character Recognition
+**ID-ICR (Indonesian Document Intelligent Character Recognition)** is a project designed to extract information from Indonesian identity documents. The current focus is on **OCR-based KTP (Indonesian national ID card) parsing**, with plans to expand into a broader ICR solution for various Indonesian documents like NPWP, SIM, and more.
 
+## Project Features
 
-[ Project Overview ]
--------------------------------------------------------------------------------
-ID-ICR is a tool for extracting information from Indonesian identity documents.
-Currently, it supports OCR-based parsing of KTP (Indonesian national ID cards).
-In the future, ID-ICR aims to expand into a full-fledged ICR (Intelligent 
-Character Recognition) solution for various Indonesian documents like NPWP, 
-driver’s licenses (SIM), invoices, and more.
+- **FastAPI Endpoint**:
+  - Upload KTP images and receive extracted data in **JSON** format.
+- **Image Preprocessing**:
+  - Leverages OpenCV and Tesseract for improved OCR accuracy on scanned or low-quality images.
+- **Field Extraction**:
+  - Regex-based parsing tailored for KTP fields such as NIK, Nama, Alamat, Tempat/Tgl Lahir, etc.
+- **Extensibility**:
+  - Ready to support new document types and implement classification logic for multi-document support.
 
-[ Current Features ]
--------------------------------------------------------------------------------
-1. FastAPI endpoint for uploading KTP images and receiving extracted data in JSON.
-2. Image preprocessing (OpenCV + Tesseract) to enhance OCR accuracy.
-3. Regex-based parsing for key KTP fields (NIK, Nama, Tempat/Tgl Lahir, etc.).
-4. Ready to integrate with classification logic for multi-document support.
+---
 
-[ Roadmap ]
--------------------------------------------------------------------------------
-1. Document Type Classification 
-   - Use ML or rule-based approaches to distinguish KTP, NPWP, etc.
-2. Expand Field Extraction 
-   - Add specialized parsers for NPWP, SIM, official letters, and more.
-3. Validation & Checks 
-   - Validate field formats (e.g., 16-digit NIK, 15-digit NPWP).
-4. User-Friendly Front-End 
-   - Implement a web or mobile interface for direct uploads & quick scanning.
+## Roadmap
 
-[ How to Use ]
--------------------------------------------------------------------------------
-1. Clone or download this repository.
-2. Install required Python packages from `requirements.txt`.
-3. Run `uvicorn main:app --reload` to start the FastAPI server.
-4. Send a POST request to `/extract` with a file upload of a KTP image.
-5. Receive a JSON response containing the extracted fields.
+1. **Document Classification**:
+   - Introduce ML-based or heuristic-based document type detection (e.g., KTP vs. NPWP).
+2. **Field-Level Parsing for Additional Documents**:
+   - Add parsing logic for NPWP, SIM, and other common Indonesian documents.
+3. **Validation and Verification**:
+   - Include validation logic for field formats (e.g., 16-digit NIK, 15-digit NPWP patterns).
+4. **User-Friendly Frontend**:
+   - Develop a simple web or mobile interface for direct uploads and real-time scanning.
 
-[ Contributing ]
--------------------------------------------------------------------------------
-1. Fork the repo and create a new branch for your feature or fix.
+---
+
+## How to Use
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/id-icr.git
+   cd id-icr
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Start the FastAPI server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+4. Use the `/extract` endpoint:
+   - Upload a KTP image via a POST request.
+   - Receive extracted data in JSON format.
+
+---
+
+## Contributing
+
+We welcome contributions! Follow these steps:
+
+1. **Fork** the repository and create a new branch for your feature or fix.
 2. Implement and test your changes.
-3. Submit a Pull Request describing your work.
+3. Submit a **Pull Request** with a detailed explanation of your work.
 
-[ License ]
--------------------------------------------------------------------------------
-This project is licensed under the MIT License (or your chosen license). 
-Please see the LICENSE file for details.
+---
 
-===============================================================================
-     Thank you for your interest in ID-ICR!
-       Let's build the future of Indonesian Document ICR together.
-===============================================================================
+## License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+
+---
+
+### Join Us!
+
+Help us expand **ID-ICR** into a full-featured platform for **Indonesian Document Intelligent Character Recognition**. Together, we can enable smarter and faster document processing for Indonesia!
